@@ -1,0 +1,26 @@
+
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1419, in execute
+    return meth(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/vimal/assignment_techinduct/api/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table addresses has no column named created_at
+[SQL: INSERT INTO addresses (name, street, city, latitude, longitude, created_at) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: ('Central Park Tower', '225 West 57th Street', 'New York', 40.7667, -73.9811, '2026-01-14 05:45:20.819342')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+
+fixes :--- Delete the Database File Dir
