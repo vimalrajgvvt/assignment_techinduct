@@ -32,14 +32,12 @@ def delete_existing_address(db: Session, address_id: int):
         db.commit()
         return True
     return False
-def get_addresses_within_radius(db: Session, radius_km: float):
-    # 1. Fetch all addresses from DB
+def get_addresses_within_radius(db: Session, radius_km: float):# 1. Fetch all addresses from DB
     all_addresses = db.query(Address).all()
     
     nearby_addresses = []
     
-    for addr in all_addresses:
-        # 2. Calculate distance between Bangalore and the stored address
+    for addr in all_addresses:# 2. Calculate distance between Bangalore and the stored address
         dist = calculate_haversine_distance(
             BANGALORE_LAT, BANGALORE_LON, 
             addr.latitude, addr.longitude
