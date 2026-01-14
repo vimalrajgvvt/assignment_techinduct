@@ -1,20 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI # type: ignore
 from database.base import Base
 from database.session import engine
 from Controller import address
 
-# Create DB tables on startup
-Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine) # Create DB tables on startup
 
-app = FastAPI(
-    title="Address Book API",
-    description="Minimal API for address management with coordinate filtering"
-)
+app = FastAPI(title="Address Book API", description="API for address")
 
-app.include_router(address.router, prefix="/address")
+app.include_router(address.router, prefix="/address") # route the controller to address the api
 
-# Standard entry point for running the script directly
 if __name__ == "__main__":
-    # Note: Using "app.app" matches your directory structure
     uvicorn.run("app.app", host="0.0.0.0", port=5002, reload=True)
+    # uvicorn app:app --host 0.0.0.0 --port 5002 --reload //command to run the project
+
+
 
